@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Lista</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Detalhes da Lista</h1>
+        <nav>
+            <a href="historico-listas.html">Voltar</a>
+        </nav>
+    </header>
+
+    <section class="detalhes-container">
+        <h2 id="tituloLista"></h2>
+        <ul id="itensLista"></ul>
+
+        <button class="btn-secondary" onclick="duplicarLista()">📋 Duplicar</button>
+        <button class="btn-primary" onclick="editarLista()">✏️ Editar</button>
+        <button class="btn-danger" onclick="excluirLista()">🗑️ Excluir</button>
+    </section>
+
+    <script src="detalhes.js"></script>
+</body>
+</html>

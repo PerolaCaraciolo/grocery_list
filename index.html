@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Ligeira</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Lista Ligeira</h1>
+        <nav>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <!-- Versão pra desktop -->
+            <div class="desktop-menu">
+                <a href="#" class="active">Home</a>
+                <a href="nova-lista.html">Nova Lista</a>
+                <a href="historico-listas.html">Histórico de listas</a>
+                <a href="#">Listas Favoritas</a>
+                <a href="#">Configurações</a>
+                <a href="#">Sobre o app</a>
+                <a href="#">Dropdown ▼</a>
+                <a href="#">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Fundo escuro quando o menu está aberto -->
+    <div id="menu-overlay" class="menu-overlay" onclick="toggleMenu()"></div>
+
+    <!-- Menu suspenso -->
+    <nav id="mobile-menu" class="mobile-menu">
+        <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="nova-lista.html">Nova Lista</a>
+            <li><a href="historico-listas.html">Histórico de listas</a></li>
+            <li><a href="#">Configurações</a></li>
+            <li><a href="#">Listas Favoritas</a></li>
+            <li><a href="#">Sobre o app</a></li>
+            <li><a href="#">Dropdown ▼</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+
+    <section class="hero">
+        <div class="image-slider">
+            <!-- Aqui será inserida a imagem fixa ou um carrossel -->
+        </div>
+        <div class="content">
+            <h2>Necessidades da sua rotina com <span class="highlight">eficiência!</span></h2>
+            <p>Menos tempo organizando, mais tempo aproveitando</p>
+            <button class="btn-primary">Vamos iniciar</button>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("mobile-menu").classList.toggle("open");
+            document.getElementById("menu-overlay").classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

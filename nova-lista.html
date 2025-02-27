@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova lista</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Lista Ligeira</h1>
+        <nav>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <!-- Versão pra desktop -->
+            <div class="desktop-menu">
+                <a href="index.html">Home</a>
+                <a href="#" class="active">Nova lista</a>
+                <a href="historico-listas.html">Histórico de listas</a>
+                <a href="#">Listas Favoritas</a>
+                <a href="#">Configurações</a>
+                <a href="#">Sobre o app</a>
+                <a href="#">Dropdown ▼</a>
+                <a href="#">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Fundo escuro quando o menu está aberto -->
+    <div id="menu-overlay" class="menu-overlay" onclick="toggleMenu()"></div>
+
+    <!-- Menu suspenso -->
+    <nav id="mobile-menu" class="mobile-menu">
+        <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" class="active">Nova lista</a></li>
+            <li><a href="historico-listas.html">Histórico de listas</a></li>
+            <li><a href="#">Configurações</a></li>
+            <li><a href="#">Listas Favoritas</a></li>
+            <li><a href="#">Sobre o app</a></li>
+            <li><a href="#">Dropdown ▼</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+
+    <section class="lista-container">
+        <h2>Criar Nova Lista</h2>
+        
+        <div class="input-group nome-lista">
+            <label for="nomeLista">Nome da Lista:</label>
+            <div class="lista-nome-container">
+                <input type="text" id="nomeLista" placeholder="Ex: Compras do mês" onblur="fixarNomeLista()">
+                <span class="editar-lista" onclick="editarNomeLista()">✏️</span>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="nomeProduto">Produto:</label>
+            <input type="text" id="nomeProduto" placeholder="Ex: Arroz">
+        </div>
+    
+        <div class="input-group">
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade" min="1" value="1">
+        </div>
+    
+        <div class="input-group">
+            <label for="preco">Preço Unitário:</label>
+            <input type="number" id="preco" min="0" step="0.01" placeholder="Ex: 5.99">
+        </div>
+    
+        <button class="btn-primary" onclick="adicionarProduto()">Adicionar Produto</button>
+    
+        <h3>Itens da Lista</h3>
+        <ul id="listaProdutos"></ul>
+    
+        <button class="btn-secondary" onclick="salvarLista()">Salvar Lista</button>
+    </section>
+
+    <script src="script.js"></script>
+
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("mobile-menu").classList.toggle("open");
+            document.getElementById("menu-overlay").classList.toggle("show");
+        }
+    </script>
+</body>
+</html>
