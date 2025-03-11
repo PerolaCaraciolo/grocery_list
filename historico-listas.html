@@ -3,27 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Ligeira</title>
+    <title>Histórico listas - Lista Ligeira</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body>
     <header>
         <h1>Lista Ligeira</h1>
-        <nav>
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-            <!-- Versão pra desktop -->
-            <div class="desktop-menu">
-                <a href="index.html">Home</a>
-                <a href="nova-lista.html">Nova Lista</a>
-                <a href="#" class="active">Histórico de listas</a>
-                <a href="#">Listas Favoritas</a>
-                <a href="#">Configurações</a>
-                <a href="#">Sobre o app</a>
-                <a href="#">Dropdown ▼</a>
-                <a href="#">Contato</a>
-            </div>
+        <nav role="navigation">
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
         </nav>
     </header>
 
@@ -32,10 +20,10 @@
 
     <!-- Menu suspenso -->
     <nav id="mobile-menu" class="mobile-menu">
-        <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        <button class="close-btn" onclick="toggleMenu()" aria-label="Fechar menu">&times;</button>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="nova-lista.html">Nova Lista</a>
+            <li><a href="nova-lista.html">Nova Lista</a></li>
             <li><a href="#" class="active">Histórico de listas</a></li>
             <li><a href="#">Configurações</a></li>
             <li><a href="#">Listas Favoritas</a></li>
@@ -48,10 +36,8 @@
     <section class="lista-container">
         <h2>Suas Listas Salvas</h2>
         <ul id="listasSalvas"></ul>
+        <p id="nenhumaListaMsg" style="display: none; color: #777;">Nenhuma lista salva ainda.</p>
     </section>
-
-    <script src="historico.js"></script>
-
 
     <script>
         function toggleMenu() {
@@ -59,5 +45,8 @@
             document.getElementById("menu-overlay").classList.toggle("show");
         }
     </script>
+
+    <script src="script.js"></script>
+    <script src="historico.js"></script>
 </body>
 </html>

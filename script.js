@@ -2,6 +2,10 @@
 let listaDeCompras = [];
 
 // Tratamento do nome da lista
+
+// Tratamento do nome da lista
+document.getElementById("nomeLista").addEventListener("click", editarNomeLista);
+
 function fixarNomeLista() {
     let nomeListaInput = document.getElementById("nomeLista");
 
@@ -31,6 +35,10 @@ function adicionarProduto() {
         return;
     }
 
+    // Impedir valores negativos
+    if (quantidade < 1) quantidade = 1;
+    if (preco < 0) preco = 0;
+
     // Criando objeto do produto
     let produto = {
         nome: nomeProduto,
@@ -58,8 +66,11 @@ function atualizarLista() {
 
     listaDeCompras.forEach((produto, index) => {
         let li = document.createElement("li");
-        li.innerHTML = `${produto.quantidade}x ${produto.nome} - R$${produto.preco} <strong>Total: R$${produto.total}</strong>
-            <button onclick="removerProduto(${index})">❌</button>`;
+        li.innerHTML = `
+            ${produto.quantidade}x ${produto.nome} - R$${produto.preco} 
+            <strong>Total: R$${produto.total}</strong>
+            <button onclick="removerProduto(${index})">❌</button>
+        `;
 
         listaUl.appendChild(li);
     });
@@ -67,8 +78,11 @@ function atualizarLista() {
 
 // Função para remover um produto da lista
 function removerProduto(index) {
-    listaDeCompras.splice(index, 1); // Remove o item pelo índice
-    atualizarLista(); // Atualiza a exibição
+    let confirmacao = confirm("Tem certeza que deseja remover este item?");
+    if (confirmacao) {
+        listaDeCompras.splice(index, 1); // Remove o item pelo índice
+        atualizarLista(); // Atualiza a exibição
+    }
 }
 
 // Função para salvar a lista (por enquanto apenas imprime no console)
@@ -93,7 +107,8 @@ function salvarLista() {
     // Cria um objeto com os dados da nova lista
     let novaLista = {
         nome: nomeLista,
-        itens: listaDeCompras
+        itens: listaDeCompras,
+        data: new Date().toLocaleDateString("pt-BR")
     };
 
     // Adiciona ao histórico

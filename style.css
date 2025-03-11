@@ -17,30 +17,53 @@ header {
     color: white;
 }
 
-.desktop-menu {
-    display: none;
+@media (max-width: 600px) {
+    .lista-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .botoes-acoes {
+        flex-direction: column;
+    }
+
+    .botoes-acoes button {
+        width: 100%;
+    }
 }
+
+/* .desktop-menu {
+    display: none;
+} */
 
 .menu-toggle {
     display: block;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
 
 /* Quando a tela for maior que 768px, mostramos o menu tradicional e escondemos o hamburguer */
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .menu-toggle {
-        display: none; /* Some com o botão do menu */
-    }
+        display: none;  */
+        /* Some com o botão do menu */
+    /* }
     
     .mobile-menu {
-        display: none; /* Some com o menu lateral no desktop */
-    }
+        display: none;  */
+        /* Some com o menu lateral no desktop */
+    /* } */
     
-    .desktop-menu {
-        display: flex; /* Exibe o menu tradicional */
-        gap: 20px;
-    }
+    /* .desktop-menu {
+        display: flex;  */
+        /* Exibe o menu tradicional */
+        /* gap: 20px;
+    } */
     
-    .desktop-menu a {
+    /* .desktop-menu a {
         text-decoration: none;
         color: white;
         font-size: 18px;
@@ -50,15 +73,7 @@ header {
         color: #B6658C;
         font-weight: bold;
     }
-}
-
-.menu-toggle {
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
+} */
 
 .menu-overlay {
     position: fixed;
@@ -233,6 +248,14 @@ header {
     border-radius: 5px;
 }
 
+.btn-primary, .btn-secondary {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    font-size: 16px;
+    text-align: center;
+}
+
 .btn-primary:hover {
     background: #8A4F6D;
 }
@@ -316,4 +339,18 @@ header {
 .data-lista {
     font-size: 14px;
     color: #777;
+}
+
+.botoes-acoes {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-danger {
+    padding: 6px 12px; /* Reduz um pouco a altura */
+    font-size: 16px; /* Ajusta a altura da linha para manter o texto centralizado */
+    height: 38px; /* Define uma altura fixa para evitar que fique maior */
 }

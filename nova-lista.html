@@ -3,26 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova lista</title>
+    <title>Nova lista - Lista Ligeira</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Lista Ligeira</h1>
-        <nav>
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-            <!-- Versão pra desktop -->
-            <div class="desktop-menu">
-                <a href="index.html">Home</a>
-                <a href="#" class="active">Nova lista</a>
-                <a href="historico-listas.html">Histórico de listas</a>
-                <a href="#">Listas Favoritas</a>
-                <a href="#">Configurações</a>
-                <a href="#">Sobre o app</a>
-                <a href="#">Dropdown ▼</a>
-                <a href="#">Contato</a>
-            </div>
+        <nav role="navigation">
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
         </nav>
     </header>
 
@@ -31,7 +20,7 @@
 
     <!-- Menu suspenso -->
     <nav id="mobile-menu" class="mobile-menu">
-        <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        <button class="close-btn" onclick="toggleMenu()" aria-label="Fechar menu">&times;</button>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="#" class="active">Nova lista</a></li>
@@ -55,6 +44,7 @@
                 <span class="editar-lista" onclick="editarNomeLista()">✏️</span>
             </div>
         </div>
+
         <div class="input-group">
             <label for="nomeProduto">Produto:</label>
             <input type="text" id="nomeProduto" placeholder="Ex: Arroz">
@@ -78,14 +68,13 @@
         <button class="btn-secondary" onclick="salvarLista()">Salvar Lista</button>
     </section>
 
-    <script src="script.js"></script>
-
-
     <script>
         function toggleMenu() {
             document.getElementById("mobile-menu").classList.toggle("open");
             document.getElementById("menu-overlay").classList.toggle("show");
         }
     </script>
+    
+    <script src="script.js" defer></script>
 </body>
 </html>

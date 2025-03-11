@@ -3,26 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes da Lista</title>
+    <title>Detalhes da Lista - Lista Ligeira</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Detalhes da Lista</h1>
-        <nav>
-            <a href="historico-listas.html">Voltar</a>
+        <h1>Lista Ligeira</h1>
+        <nav role="navigation">
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
         </nav>
     </header>
+
+    <!-- Fundo escuro quando o menu está aberto -->
+    <div id="menu-overlay" class="menu-overlay" onclick="toggleMenu()"></div>
+
+    <!-- Menu suspenso -->
+    <nav id="mobile-menu" class="mobile-menu">
+        <button class="close-btn" onclick="toggleMenu()" aria-label="Fechar menu">&times;</button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="nova-lista.html">Nova Lista</a></li>
+            <li><a href="#" class="active">Histórico de listas</a></li>
+            <li><a href="#">Configurações</a></li>
+            <li><a href="#">Listas Favoritas</a></li>
+            <li><a href="#">Sobre o app</a></li>
+            <li><a href="#">Dropdown ▼</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
 
     <section class="detalhes-container">
         <h2 id="tituloLista"></h2>
         <ul id="itensLista"></ul>
+        <!-- <p id="mensagemListaVazia" style="display: none; color: #777;">Nenhum item nesta lista.</p> -->
 
-        <button class="btn-secondary" onclick="duplicarLista()">📋 Duplicar</button>
-        <button class="btn-primary" onclick="editarLista()">✏️ Editar</button>
-        <button class="btn-danger" onclick="excluirLista()">🗑️ Excluir</button>
+
+        <div class="botoes-acoes">
+            <button class="btn-secondary" onclick="duplicarLista()">📋 Duplicar</button>
+            <button class="btn-primary" onclick="editarLista()">✏️ Editar</button>
+            <button class="btn-danger" onclick="excluirLista()">🗑️ Excluir</button>
+        </div>
     </section>
 
+    <script>
+        function toggleMenu() {
+            document.getElementById("mobile-menu").classList.toggle("open");
+            document.getElementById("menu-overlay").classList.toggle("show");
+        }
+    </script>
+
+    <script src="script.js"></script>
+    <!-- <script src="historico.js"></script> -->
     <script src="detalhes.js"></script>
 </body>
 </html>

@@ -14,7 +14,19 @@ function carregarDetalhes() {
     document.getElementById("tituloLista").innerText = lista.nome;
 
     let listaUl = document.getElementById("itensLista");
+    // let mensagemListaVazia = document.getElementById("mensagemListaVazia");
     listaUl.innerHTML = "";
+
+    // if (lista.itens.length === 0) {
+    //     mensagemListaVazia.style.display = "block"; // Exibe a mensagem se não houver itens
+    // } else {
+    //     mensagemListaVazia.style.display = "none"; // Oculta a mensagem se houver itens
+    //     lista.itens.forEach(item => {
+    //         let li = document.createElement("li");
+    //         li.innerHTML = `${item.quantidade}x ${item.nome} - R$${item.preco}`;
+    //         listaUl.appendChild(li);
+    //     });
+    // }
 
     lista.itens.forEach(item => {
         let li = document.createElement("li");
@@ -29,7 +41,11 @@ function duplicarLista() {
 
     if (!listasSalvas[index]) return;
 
-    let novaLista = { ...listasSalvas[index], nome: listasSalvas[index].nome + " (Cópia)" };
+    let novaLista = { 
+        ...listasSalvas[index], 
+        nome: listasSalvas[index].nome + " (Cópia)", 
+        data: new Date().toLocaleDateString("pt-BR") 
+    };
 
     listasSalvas.push(novaLista);
     localStorage.setItem("historicoListas", JSON.stringify(listasSalvas));
@@ -53,4 +69,5 @@ function excluirLista() {
 
 function editarLista() {
     alert("Função de edição ainda não implementada!");
+    // No futuro, permitir AQUI que o usuário edite os itens da lista
 }
