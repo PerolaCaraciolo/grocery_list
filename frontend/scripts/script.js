@@ -92,10 +92,8 @@ function removerProduto(index) {
     }
 }
 
-// Função para salvar a lista (por enquanto apenas imprime no console)
+// Função para salvar a lista
 function salvarLista() {
-    // console.log("Lista salva:", listaDeCompras);
-    // alert("Lista salva com sucesso!");
     let nomeLista = document.getElementById("nomeLista").value.trim();
 
     if (nomeLista === "") {
@@ -108,24 +106,25 @@ function salvarLista() {
         return;
     }
     
-    // Recupera listas anteriores (ou cria um array vazio se não houver nenhuma)
-    let listasSalvas = JSON.parse(localStorage.getItem("historicoListas")) || [];
-
-    // Cria um objeto com os dados da nova lista
     let novaLista = {
         nome: nomeLista,
         itens: listaDeCompras,
         data: new Date().toLocaleDateString("pt-BR")
     };
 
-    // Adiciona ao histórico
-    listasSalvas.push(novaLista);
-
-    // Salva de volta no localStorage
-    localStorage.setItem("historicoListas", JSON.stringify(listasSalvas));
-
-    alert("Lista salva com sucesso!");
-
-    // Redireciona para a página de histórico
-    window.location.href = "historico-listas.html";
+    fetch("http://localhost:3000/listas", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(novaLista)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert("Lista salva com sucesso!");
+        window.location.href = "../pages/historico-listas.html";
+    })
+    .catch(error => {
+        console.error("Erro ao salvar lista:", error);
+        alert("Erro ao salvar a lista. Tente novamente.");
+    });
 }
+
