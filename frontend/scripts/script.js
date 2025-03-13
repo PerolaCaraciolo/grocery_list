@@ -3,8 +3,15 @@ let listaDeCompras = [];
 
 // Tratamento do nome da lista
 
-// Tratamento do nome da lista
-document.getElementById("nomeLista").addEventListener("click", editarNomeLista);
+// // Tratamento do nome da lista
+// document.getElementById("nomeLista").addEventListener("click", editarNomeLista);
+
+document.addEventListener("DOMContentLoaded", function () {
+    let nomeLista = document.getElementById("nomeLista");
+    if (nomeLista) {  // Só adiciona o event listener se o elemento existir
+        nomeLista.addEventListener("click", editarNomeLista);
+    }
+});
 
 function fixarNomeLista() {
     let nomeListaInput = document.getElementById("nomeLista");

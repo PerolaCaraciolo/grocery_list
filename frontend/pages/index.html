@@ -5,24 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista Ligeira</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="manifest" href="./assets/manifest.json">
 </head>
 <body>
     <header>
         <h1>Lista Ligeira</h1>
         <nav role="navigation">
             <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
-            <!-- Versão pra desktop -->
-            <!-- <div class="desktop-menu">
-                <a href="#" class="active">Home</a>
-                <a href="nova-lista.html">Nova Lista</a>
-                <a href="historico-listas.html">Histórico de listas</a>
-                <a href="#">Listas Favoritas</a>
-                <a href="#">Configurações</a>
-                <a href="#">Sobre o app</a>
-                <a href="#">Dropdown ▼</a>
-                <a href="#">Contato</a>
-            </div> -->
         </nav>
     </header>
 
@@ -34,8 +24,8 @@
         <button class="close-btn" onclick="toggleMenu()" aria-label="Fechar menu">&times;</button>
         <ul>
             <li><a href="#" class="active">Home</a></li>
-            <li><a href="nova-lista.html">Nova Lista</a></li>
-            <li><a href="historico-listas.html">Histórico de listas</a></li>
+            <li><a href="../pages/nova-lista.html">Nova Lista</a></li>
+            <li><a href="../pages/historico-listas.html">Histórico de listas</a></li>
             <li><a href="#">Configurações</a></li>
             <li><a href="#">Listas Favoritas</a></li>
             <li><a href="#">Sobre o app</a></li>
@@ -52,7 +42,7 @@
         <div class="content">
             <h2>Necessidades da sua rotina com <span class="highlight">eficiência!</span></h2>
             <p>Menos tempo organizando, mais tempo aproveitando</p>
-            <a href="nova-lista.html"  class="btn-primary">Vamos iniciar</a>
+            <a href="../pages/nova-lista.html"  class="btn-primary">Vamos iniciar</a>
         </div>
     </section>
 
@@ -63,6 +53,14 @@
         }
     </script>
 
-    <script src="script.js" defer></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log("Service Worker registrado com sucesso!"))
+                .catch(error => console.log("Erro ao registrar Service Worker:", error));
+        }
+    </script>
+
+    <script src="../scripts/script.js" defer></script>
 </body>
 </html>

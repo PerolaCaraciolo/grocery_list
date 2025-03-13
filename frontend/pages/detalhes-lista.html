@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Histórico listas - Lista Ligeira</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Detalhes da Lista - Lista Ligeira</title>
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
     <header>
@@ -22,8 +21,8 @@
     <nav id="mobile-menu" class="mobile-menu">
         <button class="close-btn" onclick="toggleMenu()" aria-label="Fechar menu">&times;</button>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="nova-lista.html">Nova Lista</a></li>
+            <li><a href="../pages/index.html">Home</a></li>
+            <li><a href="../pages/nova-lista.html">Nova Lista</a></li>
             <li><a href="#" class="active">Histórico de listas</a></li>
             <li><a href="#">Configurações</a></li>
             <li><a href="#">Listas Favoritas</a></li>
@@ -33,10 +32,17 @@
         </ul>
     </nav>
 
-    <section class="lista-container">
-        <h2>Suas Listas Salvas</h2>
-        <ul id="listasSalvas"></ul>
-        <p id="nenhumaListaMsg" style="display: none; color: #777;">Nenhuma lista salva ainda.</p>
+    <section class="detalhes-container">
+        <h2 id="tituloLista"></h2>
+        <ul id="itensLista"></ul>
+        <!-- <p id="mensagemListaVazia" style="display: none; color: #777;">Nenhum item nesta lista.</p> -->
+
+
+        <div class="botoes-acoes">
+            <button class="btn-secondary" onclick="duplicarLista()">📋 Duplicar</button>
+            <button class="btn-primary" onclick="editarLista()">✏️ Editar</button>
+            <button class="btn-danger" onclick="excluirLista()">🗑️ Excluir</button>
+        </div>
     </section>
 
     <script>
@@ -46,7 +52,8 @@
         }
     </script>
 
-    <script src="script.js"></script>
-    <script src="historico.js"></script>
+    <script src="../scripts/script.js"></script>
+    <!-- <script src="historico.js"></script> -->
+    <script src="../scripts/detalhes.js"></script>
 </body>
 </html>

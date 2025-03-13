@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1741838994106,
+    "nome": "Compras da Semana",
+    "itens": [
+      {
+        "nome": "Leite",
+        "quantidade": 2,
+        "preco": 6.5
+      },
+      {
+        "nome": "Pão",
+        "quantidade": 3,
+        "preco": 4
+      }
+    ]
+  }
+]

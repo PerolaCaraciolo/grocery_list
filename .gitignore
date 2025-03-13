@@ -1,0 +1,7 @@
+# Ignorar dependências do Node.js
+backend/node_modules
+backend/package-lock.json
+
+# Ignorar arquivos do sistema e cache
+.DS_Store
+Thumbs.db
