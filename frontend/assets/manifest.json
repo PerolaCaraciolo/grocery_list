@@ -2,18 +2,18 @@
   "name": "Lista Ligeira",
   "short_name": "ListaLigeira",
   "description": "Aplicativo para organizar listas de compras.",
-  "start_url": "/pages/index.html",
+  "start_url": "../index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#B6658C",
   "icons": [
     {
-      "src": "./assets/icons/icon-192x192.png",
+      "src": "./icons/icon-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "./assets/icons/icon-512x512.png",
+      "src": "./icons/icon-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
